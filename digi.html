@@ -1,0 +1,403 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+:root {
+  --primary-color: #5D737E;
+  --secondary-color: #D6F8D6;
+  --tertiary-color: #7FC6A4;
+  --quaternary-color: #55505C;
+  --hover-color: #4e616b;
+  --shadow-color:rgba(57, 127, 93, 0.4);
+  --font-style: 'Questrial';
+}
+
+body {
+  font-family: var(--font-style), 'Ranchers', cursive;
+  background-color: var(--secondary-color);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 3.5rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.header {
+  padding: 15px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.settings {
+
+  z-index: 1;
+}
+
+.final {
+  visibility: hidden;
+  z-index: 2;
+}
+
+.final p {
+  font-size: 30px;
+  text-align: center;
+}
+
+.final h4 {
+  font-size: 33px;
+  text-align: center;
+}
+
+.quiz  {
+  visibility: hidden;
+  z-index: 0;
+}
+
+#questions {
+  font-size: 20px;
+  font-family: var(--font-style), 'Ranchers', cursive;
+  font-weight: 600;
+  line-height: 1.3;
+  color: white;
+  background-color: var(--primary-color);
+  appearance: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 30px;
+  outline: none;
+  text-align: center;
+  width: 120px;
+}
+.settings select {
+  font-size: 20px;
+  font-family: var(--font-style), 'Ranchers', cursive;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  color: white;
+  background-color: var(--primary-color);
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 20px;
+  outline: none;
+  text-align: center;
+}
+
+.settings select::-ms-expand {
+  display: none;
+}
+
+.settings select:hover {
+  border-color: var(--hover-color);
+}
+
+.settings select:focus {
+  border-color: var(--hover-color);
+}
+
+.settings select option {
+  /* font-weight: bolder; */
+  font-family: var(--font-style), 'Ranchers', sans-serif;
+}
+
+.settings label {
+  font-size: 25px;
+  margin-right: 16px;
+}
+
+
+.quiz, .settings, .final {
+  position: absolute;
+  padding: 0px 35px 35px 35px;
+  max-width: 560px;
+  background-color: var(--tertiary-color);
+  border-radius: 7px;
+  -webkit-box-shadow: 10px 10px 3px -4px var(--shadow-color);
+  -moz-box-shadow: 10px 10px 3px -4px var(--shadow-color);
+  box-shadow: 10px 10px 5px -4px var(--shadow-color);
+}
+
+h3 {
+  display: block;
+  width: 550px;
+  font-size: 35px;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+
+.submit {
+  width: 100%;
+  color: white;
+  background-color: var(--primary-color);
+  font-family: var(--font-style), 'Ranchers', cursive;
+  outline: none;
+  border: none;
+  height: 50px;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  border-radius: 5px;
+  letter-spacing: 2px;
+}
+
+.submit:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+  color: #FAF33E;
+}
+
+/* The container */
+.count {
+  display: block;
+  left: 75%;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
+
+.count p {
+  position: absolute;
+  font-size: 35px;
+  
+}
+
+.total {
+  margin-left: 50px;
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 30%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #FAF33E;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--quaternary-color);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+</style></head>
+<script>
+    index.js
+
+import Settings from './quiz/settings.js';
+
+new Settings();
+
+settings.js
+
+
+import Quiz from './quiz.js';
+
+class Settings {
+  constructor() {
+    this.quizElement = document.querySelector('.quiz');
+    this.settingsElement = document.querySelector('.settings');
+    this.category = document.querySelector('#category');
+    this.numberOfQuestions = document.querySelector('#questions');
+    this.difficulty = [
+      document.querySelector('#easy'),
+      document.querySelector('#medium'),
+      document.querySelector('#hard'),
+    ];
+    this.startButton = document.querySelector('#start');
+
+    this.quiz = { };
+
+    this.startButton.addEventListener('click', this.startQuiz.bind(this));
+    
+  }
+
+  async startQuiz() {
+    try {
+      console.log("Start button clicked!"); // Add this line to check if the button click is registered
+
+      const amount = this.getAmount();
+      const categoryId = this.category.value;
+      const difficulty = this.getCurrentDifficulty();
+
+      const url = `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
+
+      let data = await this.fetchData(url);
+      this.toggleVisibility();
+      this.quiz = new Quiz(this.quizElement, amount, data.results);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  toggleVisibility() {
+    this.settingsElement.style.visibility = 'hidden';
+    this.quizElement.style.visibility = 'visible';
+  }
+
+  async fetchData(url) {
+    const response = await fetch(url);
+    const result = await response.json();
+
+    return result;
+  }
+
+  getCurrentDifficulty() {
+    const checkedDifficulty = this.difficulty.filter(element => element.checked);
+
+    if (checkedDifficulty.length === 1) {
+      return checkedDifficulty[0].id;
+    } else {
+      throw new Error('Please select a difficulty!');
+    }
+  }
+
+  getAmount() {
+    const amount = this.numberOfQuestions.value;
+    // Not negative, not 0 and not over 50
+    if (amount > 0 && amount < 51) {
+      return amount;
+    }
+    throw new Error('Please enter a number of questions between 1 and 50!');
+  }
+}
+
+export default Settings;
+
+
+</script>
+<body><u></u>
+
+
+  
+  
+  
+  
+  
+
+    <div>
+      <u></u>
+        <div class="m_header">
+          <h2>DIGI Quiz</h2>
+        </div>
+        <div class="m_main">
+          <div class="m_final">
+            <h3>You answered all of the questions!</h3>
+            <p>Score: </p><p class="m_score"></p>
+            <h4>Want to try it again?</h4>
+            <button id="m_again" class="m_submit">Again</button>
+          </div>
+          <div class="m_quiz">
+            <div class="m_count">
+              <p class="m_current">0</p><p style="margin-left:40px"> / </p><p class="m_total"></p>
+            </div>
+            <h3 id="m_question"></h3>
+            <label id="m_a1" class="m_container">
+              <input type="radio" checked name="radio">
+              <span class="m_checkmark"></span>
+            </label>
+            <label id="m_a2" class="m_container">
+              <input type="radio" name="radio">
+              <span class="m_checkmark"></span>
+            </label>
+            <label id="m_a3" class="m_container">
+              <input type="radio" name="radio">
+              <span class="m_checkmark"></span>
+            </label>
+            <label id="m_a4" class="m_container">
+              <input type="radio" name="radio">
+              <span class="m_checkmark"></span>
+            </label>
+            <button id="m_next" class="m_submit">Submit</button>
+          </div>
+          <div class="m_settings">
+            <h3 style="text-align:center">Set up your Quiz!</h3>
+            <label for="m_category">Category</label>
+            <select name="category" id="m_category">
+              <option value="9">General Knowledge</option>
+              <option value="27">Animals</option>
+              <option value="15">Video Games</option>
+              <option value="23">History</option>
+              <option value="21">Sports</option>
+            </select>
+            <div class="m_mt30">
+              <label for="m_difficulty">Difficulty</label>
+              <label class="m_container" style="display:inline;margin-left:30px">Easy
+                <input type="radio" name="radio" id="m_easy">
+                <span class="m_checkmark" style="margin-top:2px"></span>
+              </label>
+              <label class="m_container" style="display:inline;margin-left:30px">Medium
+                <input type="radio" name="radio" id="m_medium">
+                <span class="m_checkmark" style="margin-top:2px"></span>
+              </label>
+              <label class="m_container" style="display:inline;margin-left:30px">Hard
+                <input type="radio" name="radio" id="m_hard">
+                <span class="m_checkmark" style="margin-top:2px"></span>
+              </label>
+            </div>
+            <div class="m_mt30">
+              <label for="m_questions">Number of questions</label>
+              <input name="questions" id="m_questions" type="text">
+            </div>  
+            <button id="m_start" class="m_submit">Start</button>
+          </div>  
+        </div>
+      <u></u>
+      
+    </div>
+    </body></html>

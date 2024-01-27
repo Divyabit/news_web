@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <style>
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        header {
+            background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin: 20px auto; 
+            max-width: 600px; 
+            padding: 20px;
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            cursor: pointer; 
+            text-align: center; 
+        }
+
+        .hidden {
+            display: none; 
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Privacy Policy</h1>
+</header>
+<main>
+    <section>
+        <h2 onclick="toggleSection('section1')">Introduction</h2>
+        <div id="section1" class="hidden">
+            <p>Welcome to The Digital Daily . At The Digital Daily, we are committed to 
+                protecting your privacy and ensuring the security of your personal information. 
+                This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our website.</p>
+        </div>
+    </section>
+    <section>
+        <h2 onclick="toggleSection('section2')">How We Use Your Information</h2>
+        <div id="section2" class="hidden">
+            <p>We use the collected information for the following purposes:</p>
+      
+              <p> 1.To personalize and improve your experience on our website.</p>
+              <p>2.To provide you with content, newsletters, and updates.</p>
+              <p>3.To respond to your inquiries or comments.</p>
+              <p>4.To analyze website traffic and trends.</p>
+              <p>5.To detect and prevent fraud or misuse of our services.</p>
+              <p>6.To comply with legal obligations and protect our rights</p>
+        </div>
+      </section>
+      <section>
+        <h2 onclick="toggleSection('section3')">Cookies</h2>
+        <div id="section3" class="hidden">
+            <p>We use cookies and similar technologies to enhance your browsing experience. 
+                Cookies are small text files stored on your device. You can manage your cookie preferences
+                 through your browser settings. 
+                Please note that disabling cookies may affect certain features of our website.</p>
+        </div>
+      </section>
+      <section>
+        <h2 onclick="toggleSection('section4')">Third-Party Links</h2>
+        <div id="section4" class="hidden">
+            <p>Our website may contain links to third-party websites or services. 
+                We are not responsible for their privacy practices. 
+                We encourage you to review the privacy policies of these third parties before providing any personal information.</p>
+        </div>
+      </section>
+      <section>
+        <h2 onclick="toggleSection('section5')">Your Rights</h2>
+        <div id="section5" class="hidden">
+            <p> You have the following rights regarding your personal information:</p>
+            <p>1.Access: You can request access to the personal information we hold about you.</p> 
+            <p>2.Correction: You can request corrections to inaccurate or incomplete data.</p> 
+            <p>3.Deletion: You can request the deletion of your personal information.</p> 
+            <p>4.Opt-Out: You can opt-out of receiving marketing communications.</p> 
+            <p>To exercise these rights or make inquiries about your data, please contact us using the information provided in the "Contact Us" section.</p>
+        </div>
+      </section>
+      
+      </section>
+      
+</main>
+
+<footer>
+    <p>&copy; 2023 Your Company Name</p>
+</footer>
+
+<script>
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section.style.display === "block") {
+            section.style.display = "none";
+        } else {
+            section.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>

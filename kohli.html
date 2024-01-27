@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preference - Sports</title>
+    <style>/* Reset some default styles */
+        body, h1 {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        h1 {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #news-container {
+            max-width: 100%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        
+        /* Style for each news container */
+        .article-container {
+            flex: 1;
+            width: calc(33.33% - 20px); /* Three containers per row with margin space */
+            max-width: calc(33.33% - 20px); /* Limit width for three containers in a row */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        
+        .article-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        
+        p {
+            color: #444;
+            margin-top: 10px;
+        }
+        
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        </style>
+</head>
+<body>
+    <h1>News about Virat Kohli</h1>
+    <div id="news-container"></div>
+
+    <script>
+        apiKey = '9244a76621d74a458a58c104214234b7';
+        const personName = 'Virat Kohli'; // Replace with the person's name you want to search for
+
+        const newsContainer = document.getElementById('news-container');
+
+        fetch(`https://newsapi.org/v2/everything?q=virat&apiKey=9244a76621d74a458a58c104214234b7`)
+            .then(response => response.json())
+            .then(data => {
+                // Process and display the news articles here
+                const articles = data.articles;
+                articles.forEach(article => {
+                    const articleElement = document.createElement('div');
+                    articleElement.classList.add('article-container'); // Add the 'article-container' class
+                    articleElement.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p>${article.description}</p>
+                        <a href="${article.url}" target="_blank">Read more</a>
+                    `;
+                    newsContainer.appendChild(articleElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching news:', error);
+            });
+    </script>
+</body>
+</html>
+
+
+</script>

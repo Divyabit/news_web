@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="news.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>News Website</title>
+</head>
+<body class="m-0 p-0">
+    <div class="container-fluid m-0 p-0">
+        
+        <nav class="navbar navbar-expand-lg navbar-white bg-white d-flex align-items center">
+            <div class="container-fluid">
+                <div class="nav-item dropdown">
+                    <button class="btn btn-secondary custom-toggler" type="button" id="navbarBarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown-menu " aria-labelledby="navbarBarDropdown">
+                        <a class="dropdown-item" href="weather.html">Weather Forecast</a>
+                        <a class="dropdown-item" href="tictactoe.html">Tic tac toe </a>
+                        <a class="dropdown-item" href="minesweeper.html">Minesweeper </a>
+
+                        <a class="dropdown-item" href="helpline.html">Helpline Contacts</a>
+                        <div id="google_translate_element"></div>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="newsCategoryDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
+
+                                <div class="dropdown-menu" aria-labelledby="newsCategoryDropdown">
+                                    <a class="dropdown-item" href="#general" id="genral">General</a>
+                                    <a class="dropdown-item" href="#business" id="business">Business</a>
+                                    <a class="dropdown-item" href="#sports" id="sport">Sports</a>
+                                    <a class="dropdown-item" href="#technology" id="technology">Technology</a>
+                                    <a class="dropdown-item" href="#entertainment" id="entertainment">Entertainment</a>
+                                    <a class="dropdown-item" href="#science" id="science">Science</a>
+                                    <a class="dropdown-item" href="#health" id="health">Health</a>
+
+                                </div>
+                            </div>
+                        </li>
+                        <button id="darkModeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <div class="dropdown">
+                        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,fr,ta,hi,te,ma', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                            }
+                        </script>
+                        <script>
+                            
+                            function toggleDarkMode() {
+                                const body = document.body;
+                                body.classList.toggle('dark-mode');
+                            
+                                
+                                const isDarkModeEnabled = body.classList.contains('dark-mode');
+                                localStorage.setItem('darkMode', isDarkModeEnabled);
+                            }
+                            
+                            
+                            const savedDarkMode = localStorage.getItem('darkMode');
+                            if (savedDarkMode === 'true') {
+                                document.body.classList.add('dark-mode');
+                            }
+                            
+                            
+                            document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+                            </script>
+                            <script>
+                            function toggleDarkMode() {
+                                const body = document.body;
+                                body.classList.toggle('dark-mode');
+                            
+                                // Toggle classes for Read buttons
+                                const readButtons = document.querySelectorAll('.read-button');
+                                readButtons.forEach((button) => {
+                                    button.classList.toggle('read-button-light', !body.classList.contains('dark-mode'));
+                                    button.classList.toggle('read-button-dark', body.classList.contains('dark-mode'));
+                                });
+                            
+                                // Toggle classes for Volume button
+                                const volumeButton = document.getElementById('volumeButton');
+                                volumeButton.classList.toggle('volume-button-light', !body.classList.contains('dark-mode'));
+                                volumeButton.classList.toggle('volume-button-dark', body.classList.contains('dark-mode'));
+                            
+                                const isDarkModeEnabled = body.classList.contains('dark-mode');
+                                localStorage.setItem('darkMode', isDarkModeEnabled);
+                            }
+                            </script>
+
+<style>
+    .logo {
+     font-family: '', cursive;
+    font-size: 30px; /* Adjust the font size as needed */
+    color: #101010; /* Change the font color to your preference */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow for style */
+  }
+
+  .smaller-search-bar {
+  font-family: 'Pacifico', cursive; /* Change the font-family to match your desired font */
+  /* Add other CSS styles as needed */
+}
+#newsCategoryDropdown {
+  font-family: 'Pacifico', cursive; /* Change the font family to 'Pacifico', cursive */
+  /* Add other CSS styles as needed */
+}
+#fetchBtn {
+  font-family: 'Pacifico', cursive; /* Change the font family to 'Pacifico', cursive */
+  /* Add other CSS styles as needed */
+}
+#date{
+    font-family: 'Pacifico', cursive;
+}
+
+
+
+
+</style>
+                        
+                        <li class="nav-item">
+                            </button>
+                                </div>
+                              </div>
+                              <div class="nav-item">
+                              <div class="logo-icon img">
+                                <img src="logos.png" alt="logo-icon img">
+                                </div>
+                                </div>
+                                <h2 class="logo"><i class='bx bxl-xing'></i>THE DIGITAL DAILY</h2>
+                            </ul>
+                            <form class="d-flex">
+                            <div class="search-box">
+                                <input class="form-control smaller-search-bar" type="text" id="newsQuery" placeholder="Search news">
+
+                                <button class="search-icon-btn" type="button" id="searchBtn">
+                                    <i class="fas fa-search"></i> 
+                                </button>
+                            </div>
+                            <button class="btn btn-outline-info" type="button" id="voiceSearchBtn"><i class="fas fa-microphone"></i></button>
+                            <div class="nav-item dropdown">
+                                <div class="user-dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-avatar">
+                                        <img src="https://wwwcdn.moovly.com/wp-content/uploads/2021/05/Avatarprofilepurple-1.png" alt="User Avatar">
+                                    </div>
+                                </div>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="login.php">Login/signup</a></li>
+                                    <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="privacy&security.html">Settings</a></li>
+                                    <li><a class="dropdown-item" href="category_selection.html">preference</a></li>
+                                    <li><a class="dropdown-item" href="login.php">Logout</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+                
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Marquee with Username</title>
+            <script>
+                function getUsername() {
+                    
+                    var username = "<?php echo isset($username) ? $username : 'my_username'; ?>";
+        
+                    
+                    return username;
+                }
+            </script>
+        </head>
+
+        <body>
+            <marquee behavior="align" direction="face" size="10">
+                <font style="font-family: 'Pacifico', cursive; font-size: 18px;">
+                  Welcome User!!!!!<script>document.write(getUsername());</script>
+                </font>
+              </marquee>
+              
+        </body>
+        
+        
+        
+
+        <label for="date">        </label>
+        <input type="date" id="date">
+        <button type="button" id="fetchBtn">Fetch News</button>
+        <div id="results" class="row"></div>
+        
+    
+        <div>
+
+            <div class="row m-3" id="newsType">
+                
+            </div>
+            <div class="row me-2 ms-2 curvy-container" id="newsdetails">
+                
+                
+        </div>
+        </div>
+
+       
+        
+        <div class="mt-5">
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
+                    <div class="container-fluid m-0 p-0">
+                        <h5 class="text-black me-auto ms-auto">THE   <span class="">DIGITAL   <span
+                                    class="text-black me-auto ms-auto">DAILY</span></h5>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+   
+    
+
+    <script src="index.js"></script>
+    <script>
+       $(document).ready(function () {
+            $("#fetchBtn").click(function () {
+                var selectedDate = $("#date").val();
+                var apiKey = "9244a76621d74a458a58c104214234b7"; // Replace with your NewsAPI key
+                var apiUrl = "https://newsapi.org/v2/everything?q=politics&from=" + selectedDate + "T00:00:00&to=" + selectedDate + "T23:59:59&apiKey=" + apiKey;
+
+                $.ajax({
+                    url: apiUrl,
+                    success: function (data) {
+                        var results = data.articles;
+                        var newsHtml = "<div class='row'>"; // Start a new row
+                        for (var i = 0; i < results.length; i++) {
+                            var article = results[i];
+                            newsHtml += "<div class='container'>";
+                            newsHtml += "<h2>" + article.title + "</h2>";
+                            newsHtml += "<p>" + article.description + "</p>";
+                            newsHtml += "<a href='" + article.url + "' target='_blank'>Read more</a>";
+                            newsHtml += "</div>";
+                            
+                            // Create a new row after every three containers
+                            if ((i + 1) % 3 === 0) {
+                                newsHtml += "</div><div class='row'>";
+                            }
+                        }
+                        newsHtml += "</div>"; // Close the last row
+                        if (results.length === 0) {
+                            newsHtml = "No news found for the selected date.";
+                        }
+                        $("#results").html(newsHtml);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("API Error:", error);
+                        $("#results").html("Error fetching news. Please check console for details.");
+                    }
+                });
+            });
+        });
+
+
+        
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</head>
+
+
+
+
+
+
+
+</html>
