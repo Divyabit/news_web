@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+        #category-selection{
+            text-align: center;
+            font-size: larger;
+        }
+        #politics-dropdown {
+            text-align: center;
+            font-size: 20px;
+        }
+        #business-dropdown{
+            text-align: center;
+            font-size: 20px;
+        }
+        #sports-dropdown{
+            text-align: center;
+            font-size: 20px;
+        }
+        
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .category {
+            margin-bottom: 20px;
+            text-align: center; /* Center-align the text within .category */
+        }
+        #news-feed{
+            text-align: center;
+        }
+
+        select {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: none;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #333;
+            margin: 0;
+        }
+
+        p {
+            color: #666;
+        }
+
+        a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User preference</h1>
+    </header>
+    <section id="category-selection">
+        <h2>Category Selection</h2>
+        <div class="category">
+            <h3>Politics</h3>
+            <div id="politics-artists">
+                
+                <select multiple id="politics-dropdown">
+                    <option value="Narendra Modi">Narendra Modi</option>
+                    <option value="Joe Biden">Joe Biden</option>
+                    <option value="M K Stalin">M K Stalin</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div class="category">
+            <h3>Sports</h3>
+            <div id="sports-artists">
+                
+                <select multiple id="sports-dropdown">
+                    <option value="MS Dhoni">MS Dhoni</option>
+                    <option value="Virat Kohli">Virat Kohli</option>
+                    <option value="Cristiano Ronaldo">Cristiano Ronaldo</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div class="category">
+            <h3>Business</h3>
+            <div id="business-artists">
+                
+                <select multiple id="business-dropdown">
+                    <option value="Elon Musk">Elon Musk</option>
+                    <option value="Larry Ellison">Larry Ellison</option>
+                    <option value="Jeff Bezos">Jeff Bezos</option>
+                    
+                </select>
+            </div>
+        </div>
+    </section>
+    <section id="news-feed">
+       
+        <div id="news-feed-list">
+           
+        </div>
+    </section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const politicsDropdown = document.getElementById('politics-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+        politicsDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = politicsDropdown.options[politicsDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'Narendra Modi') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'narendra.html';
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const politicsDropdown = document.getElementById('politics-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+        politicsDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = politicsDropdown.options[politicsDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'Joe Biden') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'joe.html';
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const politicsDropdown = document.getElementById('politics-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+        politicsDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = politicsDropdown.options[politicsDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'M K Stalin') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'stalin.html';
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const sportsDropdown = document.getElementById('sports-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+        sportsDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = sportsDropdown.options[sportsDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'MS Dhoni') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'dhoni.html';
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const sportsDropdown = document.getElementById('sports-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+    sportsDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = sportsDropdown.options[sportsDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'Virat Kohli') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'kohli.html';
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const sportsDropdown = document.getElementById('sports-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+        sportsDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = sportsDropdown.options[sportsDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'Cristiano Ronaldo') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'ronaldo.html';
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the politics dropdown element
+        const businessDropdown = document.getElementById('Business-dropdown');
+
+        // Add an event listener to the dropdown to listen for changes
+        businessDropdown.addEventListener('change', function () {
+            // Get the selected option's value
+            const selectedOption = businessDropdown.options[businessDropdown.selectedIndex].value;
+
+            // Check if the selected option is "Narendra Modi"
+            if (selectedOption === 'Elon Musk') {
+                // Redirect to the "narendra.html" page
+                window.location.href = 'musk.html';
+            }
+        });
+    });
+</script>
+
+
+
+    </script>
+</body>
+</html>
